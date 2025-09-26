@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<style>
+    .video-title-container {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      margin: 0 10%;
+    }
+    .video-title {
+      width: 100%;
+      text-align: center;
+      font-style: italic;
+      font-size: 1em; 
+    }
+    .video-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+    .video-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .video-title {
+        margin-bottom: 10px; 
+        font-weight: bold;
+        text-align: center;
+    }
+    video {
+        width: 100%;
+        height: auto;
+    }
+    .results-carousel-3x3 {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0px;
+        padding: 0;
+        margin: 0 0;
+        justify-content: center;
+        width: 99vw;
+        max-width: 100vw;
+        background-color: var(--main-bg-color);
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .carousel-item-3x3 {
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        width: 100%;
+        background-color: var(--main-bg-color) !important;
+    }
+
+    .carousel-row-3x3 {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    /* Each video‐item takes half the row (minus gap) and caps at 400px */
+    .video-item-3x3 {
+        width: calc((100% - 15px) / 2);
+        max-width: 400px;
+        box-sizing: border-box;
+    }
+
+    /* Force every video into a 16:9 box so they’re uniform */
+    .video-item-3x3 video {
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-fit: contain;
+        display: block;
+        border: none;
+        outline: none;
+    }
+
+    .video-title-3x3 {
+        text-align: center;
+        margin-top: 5px;
+        font-family: "Times New Roman", serif;
+        font-weight: normal !important;
+        font-size: clamp(10px, 1.5vw, 16px);
+    }
+
+    .teaser-container {
+        position: relative;
+        width: 60vw;
+        margin: 0 auto;
+        max-width: 1000px;
+        background-color: #000;
+        overflow: hidden;
+    }
+
+    .teaser-video {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: contain;
+    }
+
+    .text-container {
+        width: 70vw !important;
+        margin: 0 auto !important;
+        max-width: 1200px !important;
+        box-sizing: border-box !important;
+        text-align: left !important;
+    }
+
+    @media screen and (max-width: 768px) {
+        .text-container {
+            width: 85vw !important;
+            padding: 15px !important;
+            text-align: left !important;
+        }
+        .teaser-container {
+            width: 90vw;
+        }
+        /* On tablet, keep two columns but still cap at 400px */
+        .video-item-3x3 {
+            width: calc((100% - 15px) / 2);
+            max-width: 400px;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        /* On mobile, each video occupies full width */
+        .video-item-3x3 {
+            width: 100%;
+            max-width: none;
+        }
+        .carousel-row-3x3 {
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
+    /* New styling for the bottom section */
+    .bottom-section {
+      background-color: black;
+      padding: 40px 20px;
+      color: white;
+    }
+    .bottom-section .point {
+      margin-bottom: 30px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+      font-family: "Roboto", sans-serif;
+      line-height: 1.6;
+    }
+    .bottom-section .point img {
+      display: block;
+      margin: 20px auto 0;
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #444;
+    }
+    .bottom-section .point p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    .bottom-section .point p:first-child {
+      font-weight: bold;
+    }
+
+    .video-triangle-section {
+      background-color: black;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .video-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .top-row .video-player {
+      flex: 1 1 60%;
+      max-width: 800px;
+      aspect-ratio: 16 / 9;
+    }
+
+    .bottom-row .video-player {
+      flex: 1 1 40%;
+      max-width: 500px;
+      aspect-ratio: 16 / 9;
+    }
+
+    .video-player {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+</style>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="TalkingMachines: Enabling Highly Dynamic, Realistic FaceTime Experiences with Autoregressive Video Diffusion Model">
+  <meta property="og:title" content="TalkingMachines"/>
+  <meta property="og:description" content="TalkingMachines: Enabling Highly Dynamic, Realistic FaceTime Experiences with Autoregressive Video Diffusion Model"/>
+  <meta property="og:url" content="https://TalkingMachines.github.io/"/>
+  <meta name="keywords" content="Diffusion Models, video-to-video, generative AI, real-time video generation, autoregressive models">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>TalkingMachines: Enabling Highly Dynamic, Realistic FaceTime Experiences</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
+
+      if ("IntersectionObserver" in window) {
+        var lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
+          entries.forEach(function(video) {
+            if (video.isIntersecting) {
+              for (var source in video.target.children) {
+                var videoSource = video.target.children[source];
+                if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+                  videoSource.src = videoSource.dataset.src;
+                }
+              }
+              video.target.load();
+              video.target.classList.remove("lazy");
+              lazyVideoObserver.unobserve(video.target);
+            }
+          });
+        });
+
+        lazyVideos.forEach(function(lazyVideo) {
+          lazyVideoObserver.observe(lazyVideo);
+        });
+      }
+    });
+  </script>
+</head>
+
+<body>
+
+<section class="hero mb-0 pb-0 is-black" style="background-color: black">
+  <div class="hero-body mb-0 pb-0">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <br> 
+          <h1 class="title is-1 publication-title" style="font-size: 60px;">TalkingMachines</h1>
+          <h5 class="title is-5 publication-title">
+            Real-Time Audio-Driven FaceTime-Style Video via Autoregressive Diffusion Models
+          </h5>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://linkedin.com/in/chetwin-low-061975193" target="_blank">Chetwin Low</a><sup>*</sup>
+              <span>&numsp;</span>
+            </span>
+            <span class="author-block">
+              <a href="https://linkedin.com/in/weimin-wang-will" target="_blank">Weimin Wang</a><sup>*</sup>
+              <span>&numsp;</span>
+            </span>
+            <br>
+            <span class="author-block">Character.AI</span>
+          </div>
+
+          <div class="is-size-7 publication-authors">
+            <span class="author-block"><sup>*</sup></span>Equal contribution<span>&numsp;</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Paper PDF link -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2506.03099" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Tech Report</span>
+                </a>
+              </span>
+              <!-- GitHub link updated -->
+              <span class="link-block">
+                <a href="https://github.com/aaxwaz/TalkingMachines" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Github</span>
+                </a>
+              </span>
+            <!-- FH Paper link -->
+            <span class="link-block">
+                <a href="https://huggingface.co/papers/2506.03099" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    🤗
+                  </span>
+                  <span>HF Paper</span>
+                </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Intro Video -->
+<section class="video-triangle-section">
+  <!-- Top video -->
+  <div class="video-row top-row">
+    <video controls playsinline class="video-player">
+      <source src="assets/videos/intro.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Bottom two videos -->
+  <div class="video-row bottom-row">
+    <video controls playsinline class="video-player">
+      <source src="assets/videos/stevejobs_2.mp4" type="video/mp4">
+    </video>
+    <video controls playsinline class="video-player">
+      <source src="assets/videos/albert_2.mp4" type="video/mp4">
+    </video>
+  </div>
+</section>
+  
+<!-- Video Gallery -->
+<section class="section hero is-small pl-0 pr-0 is-black" style="background-color: black">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full">
+          <div class="content">
+            <div style="background-color: black; padding: 40px; color: white; font-family: 'Roboto', sans-serif; text-align: left;">
+              <p style="font-size: 1.3rem; font-weight: bold; margin-bottom: 20px;">
+                We introduce the first framework to transform a large-scale video foundation model (18B parameters) into a real-time streaming system for audio-driven avatar animation, toggling between speaking and listening modes for infinite turns, enabling immersive and interactive FaceTime experiences from diverse input image styles.
+              </p>
+              <p style="font-size: 1.1rem; margin-bottom: 30px;">
+                All videos are recorded live. All frames (including `talking` and `listening` modes) are generated in real-time. 
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <table width="100%" align="center">
+      <tbody>
+        <div id="results-carousel" class="carousel results-carousel-3x3">
+          <div class="carousel-item carousel-item-3x3">
+            <!-- Row 1: 2 videos (centered) -->
+            <div class="carousel-row-3x3">
+              <div class="video-item video-item-3x3">
+                <video controls playsinline class="plyr-video lazy">
+                  <source data-src="assets/videos/fox_forest.mp4" type="video/mp4">
+                </video>
+                <span class="video-title-3x3">
+                  Fox Character in Nature
+                </span>
+              </div>
+              <div class="video-item video-item-3x3">
+                <video controls playsinline class="plyr-video lazy">
+                  <source data-src="assets/videos/fox.mp4" type="video/mp4">
+                </video>
+                <span class="video-title-3x3">
+                  Animated Fox Avatar
+                </span>
+              </div>
+            </div>
+  
+            <!-- Row 2: 2 videos (centered) -->
+            <div class="carousel-row-3x3">
+              <div class="video-item video-item-3x3">
+                <video controls playsinline class="plyr-video lazy">
+                  <source data-src="assets/videos/interview.mp4" type="video/mp4">
+                </video>
+                <span class="video-title-3x3">
+                  Interview Style Demo
+                </span>
+              </div>
+              <div class="video-item video-item-3x3">
+                <video controls playsinline class="plyr-video lazy">
+                  <source data-src="assets/videos/dragon.mp4" type="video/mp4">
+                </video>
+                <span class="video-title-3x3">
+                  Game Play
+                </span>
+              </div>
+            </div>
+  
+            <!-- Row 3: 2 videos (centered) -->
+            <div class="carousel-row-3x3">
+              <div class="video-item video-item-3x3">
+                <video controls playsinline class="plyr-video lazy">
+                  <source data-src="assets/videos/role_play.mp4" type="video/mp4">
+                </video>
+                <span class="video-title-3x3">
+                  Role Play Character
+                </span>
+              </div>
+              <div class="video-item video-item-3x3">
+                <video controls playsinline class="plyr-video lazy">
+                  <source data-src="assets/videos/house_cat.mp4" type="video/mp4">
+                </video>
+                <span class="video-title-3x3">
+                  House Cat Character
+                </span>
+              </div>
+            </div>
+
+            <!-- Row 4: 2 videos (centered) -->
+            <div class="carousel-row-3x3">
+              <div class="video-item video-item-3x3">
+                <video controls playsinline class="plyr-video lazy">
+                  <source data-src="assets/videos/hangman.mp4" type="video/mp4">
+                </video>
+                <span class="video-title-3x3">
+                  Education
+                </span>
+              </div>
+              <div class="video-item video-item-3x3">
+                <video controls playsinline class="plyr-video lazy">
+                  <source data-src="assets/videos/crypto.mp4" type="video/mp4">
+                </video>
+                <span class="video-title-3x3">
+                  E-commerce
+                </span>
+              </div>
+            </div>
+            
+            <!-- Mobile demo section -->
+            <div style="width: 100%; text-align: center; color: white; margin-bottom: 15px; font-family: 'Roboto', sans-serif; font-size: 1rem;">
+              Mobile experiences can also work quite well
+            </div>
+            
+            <!-- Row 4: Mobile demos -->
+            <div class="carousel-row-3x3">
+              <div class="video-item video-item-3x3">
+                <video controls playsinline class="plyr-video lazy">
+                  <source data-src="assets/videos/demon.mp4" type="video/mp4">
+                </video>
+                <span class="video-title-3x3">
+                  Demon (Mobile Demo)
+                </span>
+              </div>
+              <div class="video-item video-item-3x3">
+                <video controls playsinline class="plyr-video lazy">
+                  <source data-src="assets/videos/miyuki.mp4" type="video/mp4">
+                </video>
+                <span class="video-title-3x3">
+                  Miyuki (Mobile Demo)
+                </span>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </tbody>
+    </table>
+  </section>
+  
+<!-- Bottom Section: Three New Points with Images -->
+<section class="bottom-section">
+  <div class="point">
+    <p>1. We leverage a powerful pretrained image-to-video generative model, adapting it into an audio-driven avatar animator that generalizes seamlessly across diverse image styles.</p>
+  </div>
+
+  <div class="point">
+    <p>2. We employ Asymmetric Distribution Matching Distillation with a bidirectional teacher to compress the model into a causal, sparse-attention architecture—enabling real-time streaming capability for FaceTime applications.</p>
+    <img src="assets/images/dmd2_training.png" alt="DMD2 Training Diagram">
+  </div>
+
+  <div class="point">
+    <p>3. We introduce system-level optimizations that run the score network and VAE model on separate CUDA streams, allowing our 18B-parameter video generation model to operate in real-time.</p>
+    <img src="assets/images/runtime_analysis.png" alt="Runtime Analysis Diagram">
+  </div>
+
+  <div class="point">
+    <p>4. Our model demonstrates seamless integration with mainstream audio large language models and WebRTC streaming services (LiveKit), enabling real-time, interactive FaceTime-style experiences across desktop and mobile platforms through a unified framework.</p>
+</div>
+</section>
+
+<script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+<script>
+    const players = Plyr.setup('.plyr-video', {
+        controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'fullscreen']
+    });
+
+    bulmaCarousel.attach('#results-carousel', {
+        slidesToScroll: 1,
+        slidesToShow: 1
+    });
+</script>
+
+</body>
+</html>
