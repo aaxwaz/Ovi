@@ -611,8 +611,8 @@
     </section>
 
     <div class="container text-center" style="margin-top: 50px; text-align: center;">
-      <p class="title-art3" style="font-size: 1.6em;"> The last of Ovi </p>
-      <p class="description" style="font-size: 1.0em;"> All clips were created using text or text+image as inputs only by Ovi. Video saved down to 480p to save space. Please turn on the sound for watching.</p>
+      <p class="title-art3" style="font-size: 1.6em;"> The Last Stand Against Ovi </p>
+      <p class="description" style="font-size: 1.0em;"> All clips were created by Ovi, using only text or text+image as inputs. Video resized down to 480p to save space. Please turn on the sound for watching.</p>
     </div>
     
 
@@ -624,13 +624,54 @@
     </div>
 
     <section id="video">
+        <div class="title" style="font-family: 'Alegreya'; font-size: 1.6em;">
+            Key Features
+        </div>
+        <div class="content" style="font-family: 'Alegreya'; line-height: 1.8; text-align: center;">
+            <div style="font-size: 16px; color: #ccc; max-width: 800px; margin: 0 auto;">
+                <div style="margin-bottom: 25px;">
+                    <h4 style="color: #fff; font-size: 20px; margin-bottom: 10px;"><strong>High-Quality Synchronized Audio</strong></h4>
+                    <p style="color: #ccc; opacity: 0.8;">Generating videos with high quality audios that perfectly match character identity, gender, emotions, pauses, and context</p>
+                </div>
+                
+                <div style="margin-bottom: 25px;">
+                    <h4 style="color: #fff; font-size: 20px; margin-bottom: 10px;"><strong>Data-Driven Lip-sync Learning</strong></h4>
+                    <p style="color: #ccc; opacity: 0.8;">Achieving precise lip synchronization without explicit face bounding boxes, through pure data-driven learning</p>
+                </div>
+                
+                <div style="margin-bottom: 25px;">
+                    <h4 style="color: #fff; font-size: 20px; margin-bottom: 10px;"><strong>Multi-Person Dialogue Support</strong></h4>
+                    <p style="color: #ccc; opacity: 0.8;">Naturally extending to realistic multiple speakers and multi-turn conversations, making complex dialogue scenarios possible</p>
+                </div>
+                
+                <div style="margin-bottom: 25px;">
+                    <h4 style="color: #fff; font-size: 20px; margin-bottom: 10px;"><strong>Contextual Sound Generation</strong></h4>
+                    <p style="color: #ccc; opacity: 0.8;">Creating synchronized background music and sound effects that match visual actions</p>
+                </div>
+
+                <div style="margin-bottom: 25px;">
+                    <h4 style="color: #fff; font-size: 20px; margin-bottom: 10px;"><strong>OSS Release to Expedite Research  </strong></h4>
+                    <p style="color: #ccc; opacity: 0.8;">We are excited to release our full pre-trained model weights and inference code to expedite video+audio generation in OSS community. </p>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <div class="description" style="font-style: italic; margin-bottom: 10px; margin-top: 40px;">
+        Videos below were upsampled for visual appeal using standard tools. Audio remains original.
+    </div>
+
+    <section id="video">
       <div class="title" style="font-family: 'Alegreya'; font-size: 1.6em;">
         Human-centric AV Generation from Text (T2AV)
       </div>
 
       <div class="description">
-        Given a text prompt, Ovi generates a high quality video with audio. Please enable audio.  <em><strong>Hover over the video to reveal the text prompt.</strong></em>
+        Given a text prompt, Ovi generates a high quality video with audio. Please enable audio. 
       </div>
+
 
       <div class="flex flex-dynamic">
         <div class="prompt-wrap full-screen-wrap" style="position: relative;">
@@ -821,7 +862,7 @@
           Human-centric AV Generation from Text & Image (TI2AV)
         </div>
         <div class="description">
-            Given a starting first frame and text prompt, Ovi generates a high quality video with audio. Please enable audio. <em><strong>Hover over the video to reveal the text prompt.</strong></em>
+            Given a starting first frame and text prompt, Ovi generates a high quality video with audio. Please enable audio. 
         </div>
         
         <div class="flex flex-dynamic">
@@ -896,21 +937,6 @@
                   playsinline
                   preload="metadata"
                   onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" 
-                  src="./assets/videos/ti2av/8.mp4">
-              </video>
-                <div class="prompt">placeholder</div>
-            </div>
-            <div class="prompt-wrap full-screen-wrap" style="position: relative;">
-                <div class="loading-placeholder">
-                    <div class="loading-text">Loading...</div>
-                    <div class="loading-icon">&#9749</div>
-                </div>
-                <video 
-                  controls 
-                  loop
-                  playsinline
-                  preload="metadata"
-                  onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" 
                   src="./assets/videos/ti2av/10.mp4">
               </video>
                 <div class="prompt">placeholder</div>
@@ -930,21 +956,6 @@
               </video>
                 <div class="prompt">placeholder</div>
             </div>
-            <div class="prompt-wrap full-screen-wrap" style="position: relative;">
-                <div class="loading-placeholder">
-                    <div class="loading-text">Loading...</div>
-                    <div class="loading-icon">&#9749</div>
-                </div>
-                <video 
-                  controls 
-                  loop
-                  playsinline
-                  preload="metadata"
-                  onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" 
-                  src="./assets/videos/ti2av/12.mp4">
-              </video>
-                <div class="prompt">placeholder</div>
-            </div>
         </div>
     </section>
 
@@ -954,7 +965,7 @@
     </div>
 
     <div class="description">
-      Given a text prompt with optional starting image, Ovi generates a video with multi person dialogue. Please enable audio.  <em><strong>Hover over the video to reveal the text prompt.</strong></em>
+      Given a text prompt with optional starting image, Ovi generates a video with multi person dialogue. Please enable audio.  
     </div>
 
     <div class="flex flex-dynamic">
@@ -969,7 +980,7 @@
             playsinline
             preload="metadata"
             onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" 
-            src="./assets/videos/multiperson/cafe.mp4">
+            src="./assets/videos/multiperson/robot.mp4">
         </video>
           <div class="prompt">placeholder
           </div>
@@ -984,7 +995,7 @@
             playsinline
             preload="metadata"
             onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" 
-            src="./assets/videos/multiperson/library.mp4">
+            src="./assets/videos/multiperson/comeout.mp4">
         </video>
           <div class="prompt">A close-up shows a freshly cooked steak falling onto a wooden chopping board, its browned surface glistening as it lands and settles with a slight bounce. Steam rises faintly from the meat under the warm kitchen light, the frame holding steady as it comes to rest.. <AUDCAP>Soft, meaty smack as the steak hits the board, gentle thud as it settles, faint hiss of residual heat from the surface.<ENDAUDCAP>
           </div>
@@ -999,7 +1010,7 @@
             playsinline
             preload="metadata"
             onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" 
-            src="./assets/videos/multiperson/kitchen.mp4">
+            src="./assets/videos/multiperson/ghost.mp4">
         </video>
           <div class="prompt">placeholder</div>
       </div>
@@ -1014,7 +1025,7 @@
             playsinline
             preload="metadata"
             onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" 
-            src="./assets/videos/multiperson/hairdresser.mp4">
+            src="./assets/videos/multiperson/poppy.mp4">
         </video>
           <div class="prompt">A wide shot shows the ocean colliding with jagged cliffs, each impact sending a dazzling burst of white spray high into the air where sunlight fractures into a fine mist. Seabirds wheel gracefully overhead, their wings glinting as they dip and rise against the endless expanse of sky. The horizon stretches outward in a serene gradient of pale blue, the restless sea below forever in motion against the immovable stone.. <AUDCAP>Resonant crash of waves exploding against rock, soft hiss of foam retreating across wet stone, echoing cries of seabirds above, steady low roar of the surf rolling beneath it all.<ENDAUDCAP>
           </div>
@@ -1027,7 +1038,7 @@
     </div>
 
     <div class="description">
-      Given a text prompt with optional starting image, Ovi generates a video with high-quality sound effects. Please enable audio.  <em><strong>Hover over the video to reveal the text prompt.</strong></em>
+      Given a text prompt with optional starting image, Ovi generates a video with high-quality sound effects. Please enable audio.  
     </div>
 
     <div class="flex flex-dynamic">
@@ -1193,7 +1204,7 @@
   </div>
 
   <div class="description">
-    Given a text prompt with optional starting image, Ovi generates a video with music. Please enable audio.  <em><strong>Hover over the video to reveal the text prompt.</strong></em>
+    Given a text prompt with optional starting image, Ovi generates a video with music. Please enable audio.  
   </div>
 
   <div class="flex flex-dynamic">
@@ -1325,7 +1336,7 @@
         </div>
 
         <div class="description">
-            We compare our Ovi with Veo3, the state-of-the-art text-to-video model that can generate videos with sound. Please enable audio. <em><strong>Hover over the video to reveal the text prompt.</strong></em>
+            We compare our Ovi with Veo3, the state-of-the-art text-to-video model that can generate videos with sound. Please enable audio. 
         </div>
 
         <!-- <div class="flex flex-dynamic"> -->
@@ -1390,7 +1401,9 @@
     </section>
 
     <section class="acknowledgements-section">
-        <h3>Ovi Team</h3>
+        <div class="title" style="font-family: 'Alegreya'; font-size: 1.6em; color: #fff;">
+            Ovi Team
+        </div>
         <div class="authors">
             <p class="role" style="display: flex; justify-content: space-between;">
                 <strong>Project and Team Leader</strong>
@@ -1425,10 +1438,50 @@
         </div>
     </section>
 
+    <section id="limitations">
+        <div class="title" style="font-family: 'Alegreya'; font-size: 1.6em; color: #fff;">
+          Limitations
+        </div>
+      
+        <div class="content">
+          <div class="description">
+            Like all machine learning systems, <span class="highlight">Ovi</span> has practical limits that affect when and how it performs best.
+          </div>
+      
+          <ul class="description" style="line-height: 1.8; margin-top: 20px; margin-left: 20px;">
+            <li style="margin-bottom: 15px;">
+              <strong>Video branch constraints.</strong>
+              Visual quality inherits from the pretrained <em>WAN 2.2 5B ti2v</em> backbone. 
+            </li>
+      
+            <li style="margin-bottom: 15px;">
+              <strong>Speed/memory vs. fine detail.</strong>
+              The <em>10B parameter</em> model (<em>5B visual + 5B audio</em>) and high spacial compression rate balance inference speed and memory, 
+              limiting extremely fine-grained details, tiny objects, or intricate textures in complex scenes.
+            </li>
+      
+            <li style="margin-bottom: 15px;">
+              <strong>Human-centric bias.</strong>
+              Data skews toward human-centric content, so Ovi performs best on human-focused, 
+              upper-body talking shots, with diverse motion range. The audio branch enables highly emotional, dramatic short clips within this focus.
+            </li>
+      
+            <li style="margin-bottom: 15px;">
+              <strong>Pretraining only stage.</strong>
+              Without extensive post-training or RL stages, outputs vary more between runs. 
+              <em>Tip:</em> Try multiple random seeds for better results.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      
     <section class="ethics-section">
-        <h3>Ethical Considerations</h3>
-        <p>
-            TO BE FILLED UP
+        <div class="title" style="font-family: 'Alegreya'; font-size: 1.6em; color: #fff;">
+            Ethical Considerations
+        </div>
+        <p style="color: #ccc; opacity: 0.8;">
+            The reference images are sourced from public domains or generated by AI models, and are intended solely to demonstrate the capabilities of this research. If there are any concerns, please contact us (weiminwang@character.ai) and we will delete them.
         </p>
     </section>
 
