@@ -1321,74 +1321,97 @@
   </div>
 </section>
     <section id="Veo3 Comparison">
-        <div class="title" style="font-family: 'lubri'; font-size: 1.6em;">
-            Comparison with Veo3
-        </div>
+    <div class="title" style="font-family: 'Alegreya'; font-size: 1.6em;">
+        Comparison with Veo3
+    </div>
 
-        <div class="description">
-            We compare our Ovi with Veo3, the state-of-the-art text-to-video model that can generate videos with sound.
-        </div>
+    <div class="description">
+        We compare our Ovi with Veo3, the state-of-the-art text-to-video model that can generate videos with sound. Please enable audio. <em><strong>Hover over the video to reveal the text prompt.</strong></em>
+    </div>
 
-        <!-- <div class="flex flex-dynamic"> -->
-        <div class="flex flex-dynamic" style="flex-direction: column; align-items: center;">
-          <div class="prompt-wrap full-screen-wrap" style="position: relative;">
-            <div class="loading-placeholder">
-              <div class="loading-text">Loading...</div>
-              <div class="loading-icon">&#9749</div>
-              </div>
-              <video 
-                controls 
-                playsinline
-                preload="metadata"
-                onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" 
-                src="./assets/videos/veo3_comparison/sailor_2_i2v.mp4">
-            </video>
-              
+    <div style="padding: 0 5px;">
+      <div class="flex-row" style="margin-bottom: 20px;">
+        <div style="text-align: center; margin-bottom: 5px;"><h4 style="color: #999;">Veo3</h4></div>
+        <div style="text-align: center; margin-bottom: 5px;"><h4 style="color: #999;">Ovi (Ours)</h4></div>
+      </div>
+      
+      <div class="flex-row" style="margin-bottom: 20px;">
+        <div class="prompt-wrap full-screen-wrap" style="position: relative;">
+          <div class="loading-placeholder">
+            <div class="loading-text">Loading...</div>
+            <div class="loading-icon">&#9749</div>
           </div>
-          <div class="prompt-wrap full-screen-wrap" style="position: relative;">
-            <div class="loading-placeholder">
-              <div class="loading-text">Loading...</div>
-              <div class="loading-icon">&#9749</div>
-              </div>
-              <video 
-                controls 
-                playsinline
-                preload="metadata"
-                onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" 
-                src="./assets/videos/veo3_comparison/onions_i2v.mp4">
-            </video>
-              
-          </div>
-          <div class="prompt-wrap full-screen-wrap" style="position: relative;">
-            <div class="loading-placeholder">
-              <div class="loading-text">Loading...</div>
-              <div class="loading-icon">&#9749</div>
-              </div>
-              <video 
-                controls 
-                playsinline
-                preload="metadata"
-                onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" 
-                src="./assets/videos/veo3_comparison/detective_i2v.mp4">
-            </video>
-              
-          </div>
-          <div class="prompt-wrap full-screen-wrap" style="position: relative;">
-            <div class="loading-placeholder">
-              <div class="loading-text">Loading...</div>
-              <div class="loading-icon">&#9749</div>
-              </div>
-              <video 
-                controls 
-                playsinline
-                preload="metadata"
-                onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" 
-                src="./assets/videos/veo3_comparison/cartographer_i2v.mp4">
-            </video>
-              
-          </div>
+          <video controls playsinline preload="metadata" onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/veo3_videos/veo3_sailor.mp4"></video>
+          <div class="prompt">placeholder</div>
         </div>
-    </section>
+        <div class="prompt-wrap full-screen-wrap" style="position: relative;">
+          <div class="loading-placeholder">
+            <div class="loading-text">Loading...</div>
+            <div class="loading-icon">&#9749</div>
+          </div>
+          <video controls playsinline preload="metadata" onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/veo3_comparison/sailor_2_i2v.mp4"></video>
+          <div class="prompt">placeholder</div>
+        </div>
+      </div>
+
+      <div class="flex-row" style="margin-bottom: 20px;">
+        <div class="prompt-wrap full-screen-wrap" style="position: relative;">
+          <div class="loading-placeholder">
+            <div class="loading-text">Loading...</div>
+            <div class="loading-icon">&#9749</div>
+          </div>
+          <video controls playsinline preload="metadata" onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/veo3_videos/veo3_onions.mp4"></video>
+          <div class="prompt">placeholder</div>
+        </div>
+        <div class="prompt-wrap full-screen-wrap" style="position: relative;">
+          <div class="loading-placeholder">
+            <div class="loading-text">Loading...</div>
+            <div class="loading-icon">&#9749</div>
+          </div>
+          <video controls playsinline preload="metadata" onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/veo3_comparison/onions_i2v.mp4"></video>
+          <div class="prompt">placeholder</div>
+        </div>
+      </div>
+
+      <div class="flex-row" style="margin-bottom: 20px;">
+        <div class="prompt-wrap full-screen-wrap" style="position: relative;">
+          <div class="loading-placeholder">
+            <div class="loading-text">Loading...</div>
+            <div class="loading-icon">&#9749</div>
+          </div>
+          <video controls playsinline preload="metadata" onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/veo3_videos/veo3_detective.mp4"></video>
+          <div class="prompt">placeholder</div>
+        </div>
+        <div class="prompt-wrap full-screen-wrap" style="position: relative;">
+          <div class="loading-placeholder">
+            <div class="loading-text">Loading...</div>
+            <div class="loading-icon">&#9749</div>
+          </div>
+          <video controls playsinline preload="metadata" onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/veo3_comparison/detective_i2v.mp4"></video>
+          <div class="prompt">placeholder</div>
+        </div>
+      </div>
+
+      <div class="flex-row">
+        <div class="prompt-wrap full-screen-wrap" style="position: relative;">
+          <div class="loading-placeholder">
+            <div class="loading-text">Loading...</div>
+            <div class="loading-icon">&#9749</div>
+          </div>
+          <video controls playsinline preload="metadata" onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/veo3_videos/veo3_cartographer.mp4"></video>
+          <div class="prompt">placeholder</div>
+        </div>
+        <div class="prompt-wrap full-screen-wrap" style="position: relative;">
+          <div class="loading-placeholder">
+            <div class="loading-text">Loading...</div>
+            <div class="loading-icon">&#9749</div>
+          </div>
+          <video controls playsinline preload="metadata" onloadeddata="this.style.display='block'; this.previousElementSibling.style.display='none';" src="./assets/videos/veo3_comparison/cartographer_i2v.mp4"></video>
+          <div class="prompt">placeholder</div>
+        </div>
+      </div>
+    </div>
+</section>
 
     <section class="acknowledgements-section">
         <div class="title" style="font-family: 'lubri'; font-size: 1.6em; color: #fff;">
